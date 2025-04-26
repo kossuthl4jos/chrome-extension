@@ -4,19 +4,18 @@ const locationElement = document.getElementById("location");
 async function getWeather() {
   try {
     const locationResponse = await fetch("https://ipapi.co/json/");
-    const location = await locationResponse.json();
-    locationElement.textContent = location.city;
-    const ApiKey = "<<YOUR_API_KEY>>";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location.city}&units=metric&appid=${ApiKey}`;
+    const { city, latitude, longitude } = await locationResponse.json();
+    locationElement.textContent = city;
+    // https://open-meteo.com/en/docs
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`;
     const response = await fetch(url);
     const weatherData = await response.json();
     console.log(weatherData);
 
-    const temperature = weatherData.main.temp;
-    const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`;
-
-    weatherElement.textContent = `${Math.round(temperature)}°C`;
-    weatherIcon.src = weatherIconUrl;
+    weatherElement.textContent = `${Math.round(
+      weatherData.current.temperature_2m
+    )}°C`;
+    weatherIcon.src = "icons/clear-sun.svg";
   } catch (error) {
     console.error("Error fetching weather data:", error);
     locationElement.textContent = "Error fetching weather";
