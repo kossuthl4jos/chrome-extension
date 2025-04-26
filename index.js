@@ -38,9 +38,10 @@ function updateTime() {
     minute: "2-digit",
     second: "2-digit",
   });
+  const currentTimeElement = document.getElementById("current-time");
   currentTimeElement.textContent = ` ${formattedTime}`;
   const formattedDate = now.toLocaleDateString("en-US", options);
-  const currentDay = document.getElementById("currentDay");
+  const currentDay = document.getElementById("current-day");
   currentDay.textContent = `${formattedDate} `;
 }
 
