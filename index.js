@@ -67,3 +67,19 @@ function getQuote() {
   document.getElementById("random-quote").textContent = randomQuote;
 }
 getQuote();
+
+document.getElementById("search-btn").addEventListener("click", function () {
+  const query = document.getElementById("search").value.trim();
+  if (query) {
+    // Redirect to Google search
+    window.location.href =
+      "https://www.google.com/search?q=" + encodeURIComponent(query);
+  }
+});
+
+// Allow pressing Enter in the input field
+document.getElementById("search").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    document.getElementById("search-btn").click();
+  }
+});
