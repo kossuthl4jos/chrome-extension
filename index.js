@@ -61,13 +61,26 @@ const quotes = [
   "We may encounter many defeats but we must not be defeated. - Maya Angelou",
 ];
 
-function getQuote() {
-  const quoteIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[quoteIndex];
-  document.getElementById("random-quote").textContent = randomQuote;
+async function fetchQuote() {
+  try {
+    const response = await fetch("https://zenquotes.io/api/random");
+    const data = await response.json();
+    const { q, a } = data[0];
+    console.log(data);
+    document.getElementById("random-quote").textContent = `"${q}" — ${a}`;
+  } catch (error) {
+    console.error("Error fetching quote:", error);
+    console.info("Falling back to backup quotes...");
+    const quoteIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[quoteIndex];
+    document.getElementById("random-quote").textContent = randomQuote;
+  }
 }
-getQuote();
 
+// Fetch a quote when the page loads
+fetchQuote();
+
+// Search functionality
 document.getElementById("search-btn").addEventListener("click", function () {
   const query = document.getElementById("search").value.trim();
   if (query) {

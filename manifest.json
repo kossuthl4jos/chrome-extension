@@ -5,5 +5,7 @@
   "description": "A Minimalistic homepage for my Chrome browser",
   "chrome_url_overrides": {
     "newtab": "home.html"
-  }
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://zenquotes.io/*"]
 }
