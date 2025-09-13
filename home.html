@@ -9,7 +9,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>My Extension</title>
+    <title>Home page</title>
   </head>
   <body>
     <div class="position-fixed top-0 end-0 mt-2 me-3 py-2">
@@ -20,43 +20,43 @@
       <p id="location"></p>
     </div>
 
-    <div class="container mt-5 pt-5">
-      <div class="text-center pt-5 mt-5">
+    <div class="d-flex flex-column min-vh-100">
+      <!-- Top: Date & Time -->
+      <div class="text-center py-5">
         <p id="current-day"></p>
         <h1 id="current-time"></h1>
       </div>
 
-      <div
-        class="row justify-content-center align-items-center w-100 mt-5 pt-5"
-      >
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <img
-                  src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-                  alt="Google"
-                  height="24"
-                />
-              </span>
-            </div>
-            <input
-              type="text"
-              id="search"
-              class="form-control outline-none"
-              placeholder="Search the web..."
-            />
-            <div class="input-group-append">
-              <button id="search-btn" class="btn btn-primary">Search</button>
+      <!-- Middle: Search bar -->
+      <div class="container flex-grow-1 d-flex justify-content-center">
+        <div class="row w-100 justify-content-center align-self-center">
+          <div class="col-12 col-md-8 col-lg-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <img
+                    src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                    alt="Google"
+                    height="24"
+                  />
+                </span>
+              </div>
+              <input
+                type="text"
+                id="search"
+                class="form-control outline-none"
+                placeholder="Search Google..."
+              />
+              <div class="input-group-append">
+                <button id="search-btn" class="btn btn-primary">Search</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="fixed-bottom text-center bg-light py-2 pt-3"
-        id="quote-container"
-      >
+      <!-- Bottom: Quote -->
+      <div class="text-center bg-light py-2 pt-3" id="quote-container">
         <p id="random-quote" class="mb-3"></p>
       </div>
     </div>
