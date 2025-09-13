@@ -21,34 +21,39 @@
     </div>
 
     <div class="d-flex flex-column min-vh-100">
-      <!-- Top: Date & Time -->
-      <div class="text-center py-5">
-        <p id="current-day"></p>
-        <h1 id="current-time"></h1>
-      </div>
+      <!-- Middle block (date/time + search) -->
+      <div
+        class="container flex-grow-1 d-flex justify-content-center align-items-center"
+      >
+        <div class="text-center">
+          <!-- Date & Time -->
+          <p id="current-day"></p>
+          <h1 id="current-time"></h1>
 
-      <!-- Middle: Search bar -->
-      <div class="container flex-grow-1 d-flex justify-content-center">
-        <div class="row w-100 justify-content-center align-self-center">
-          <div class="col-12 col-md-8 col-lg-6">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <img
-                    src="icons/Google__G__logo.svg"
-                    alt="Google"
-                    height="24"
-                  />
-                </span>
-              </div>
-              <input
-                type="text"
-                id="search"
-                class="form-control outline-none"
-                placeholder="Search Google..."
-              />
-              <div class="input-group-append">
-                <button id="search-btn" class="btn btn-primary">Search</button>
+          <!-- Search Bar -->
+          <div class="row justify-content-center mt-4 w-100">
+            <div class="col-12 col-md-8 col-lg-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img
+                      src="icons/Google__G__logo.svg"
+                      alt="Google"
+                      height="24"
+                    />
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  id="search"
+                  class="form-control outline-none"
+                  placeholder="Search Google..."
+                />
+                <div class="input-group-append">
+                  <button id="search-btn" class="btn btn-primary">
+                    Search
+                  </button>
+                </div>
               </div>
             </div>
           </div>
