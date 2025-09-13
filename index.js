@@ -36,6 +36,7 @@ function updateTime() {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
+    hourCycle: "h24",
   });
   const currentTimeElement = document.getElementById("current-time");
   currentTimeElement.textContent = ` ${formattedTime}`;
